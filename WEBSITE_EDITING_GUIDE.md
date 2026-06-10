@@ -110,14 +110,13 @@ This controls the site-specific styling for the headshot, home title block, rese
 ## Other Files
 
 - `404.html`: page shown for missing URLs.
-- `publications/index.html`: old `/publications/` URL that redirects visitors to `/research/`.
 - `sitemap.xml`: currently lists only `/`, `/cv/`, and `/research/`.
 - `robots.txt`: crawler guidance.
 - `CNAME`: custom domain setting for GitHub Pages.
 
-## Leftover Template Pages
+## Removed Template Pages
 
-This repository still contains old al-folio template pages such as:
+The old al-folio template routes were removed so visitors do not see placeholder pages and you do not accidentally edit the wrong files. These paths should return 404:
 
 ```text
 blog/
@@ -127,8 +126,7 @@ people/
 projects/
 repositories/
 teaching/
+publications/
 ```
 
-They are not in the visible navigation or sitemap, but static hosting can still serve them if someone directly visits those URLs. That means there is some risk of visitors seeing placeholder template content.
-
-Recommended cleanup: delete or redirect these leftover template directories after you confirm you do not want to use them. Do not edit them for normal site updates.
+Normal site updates should only touch the files listed in the Home, Research, CV, Shared Styling, and Other Files sections above.

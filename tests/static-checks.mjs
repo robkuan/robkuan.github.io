@@ -1,5 +1,18 @@
 const baseUrl = process.argv[2] || "http://localhost:8080";
 const requiredPaths = ["/", "/cv/", "/research/"];
+const removedPaths = [
+  "/publications/",
+  "/blog/",
+  "/books/",
+  "/news/",
+  "/people/",
+  "/projects/",
+  "/repositories/",
+  "/teaching/",
+  "/assets/html/relativity.html",
+  "/assets/jupyter/blog.ipynb.html",
+  "/assets/plotly/demo.html"
+];
 const placeholders = [
   "You R. Name",
   "Albert Einstein",
@@ -23,6 +36,7 @@ assertHome(pages.get("/"));
 assertCvPreview(pages.get("/cv/"));
 await assertResearch();
 await assertInternalLinks();
+await assertRemovedRoutes();
 
 console.log("static checks passed");
 process.exit(0);
@@ -141,6 +155,13 @@ async function assertInternalLinks() {
   for (const path of pathsToCheck) {
     const response = await fetch(new URL(path, baseUrl));
     assert(response.ok, `Internal link failed: ${path} returned ${response.status}`);
+  }
+}
+
+async function assertRemovedRoutes() {
+  for (const path of removedPaths) {
+    const response = await fetch(new URL(path, baseUrl));
+    assert(response.status === 404, `Removed route should return 404: ${path} returned ${response.status}`);
   }
 }
 

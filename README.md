@@ -77,4 +77,4 @@ The root-level `CNAME` file already contains `www.robkuan.com`.
 
 ## Template Cleanup
 
-This repo still contains old al-folio sample pages, including `blog/`, `books/`, `news/`, `people/`, `projects/`, `repositories/`, and `teaching/`. They are not linked from the current navigation or sitemap, but GitHub Pages can still serve them by direct URL. Delete or redirect them once you are ready to simplify the repo.
+The old al-folio sample pages have been removed, including `blog/`, `books/`, `news/`, `people/`, `projects/`, `repositories/`, `teaching/`, and the old `publications/` route. The active HTML pages are `index.html`, `research/index.html`, `cv/index.html`, and `404.html`.
