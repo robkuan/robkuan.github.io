@@ -1,0 +1,12 @@
+{
+  "name": "robkuan.github.io",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node tests/static-checks.mjs",
+    "check:browser": "node tests/browser-check.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

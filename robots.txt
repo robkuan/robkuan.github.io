@@ -1,4 +1,12 @@
 User-agent: *
-Disallow:
+Disallow: /_pages/
+Disallow: /blog/
+Disallow: /books/
+Disallow: /news/
+Disallow: /people/
+Disallow: /projects/
+Disallow: /repositories/
+Disallow: /teaching/
+Allow: /
 
-Sitemap: https://robkuan.github.io/sitemap.xml
+Sitemap: https://www.robkuan.com/sitemap.xml

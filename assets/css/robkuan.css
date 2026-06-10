@@ -1,0 +1,113 @@
+.profile {
+  max-width: 250px;
+}
+
+.home-tagline {
+  margin-top: 0.4rem;
+}
+
+.home-role {
+  display: block;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.home-field {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+}
+
+.home-affiliation {
+  color: var(--global-text-color-light);
+  display: block;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  margin-top: 0.25rem;
+}
+
+.profile.float-right {
+  margin-bottom: 1rem;
+  margin-left: 1.5rem;
+}
+
+.profile .headshot {
+  max-width: 230px;
+  width: 100%;
+}
+
+.profile + .clearfix {
+  overflow: hidden;
+}
+
+.pdf-actions {
+  margin-bottom: 1rem;
+}
+
+.pdf-actions .btn {
+  border: 1px solid var(--global-text-color);
+  color: var(--global-text-color);
+  font-size: 0.85rem;
+  padding: 0.45rem 0.9rem;
+}
+
+.pdf-actions .btn:hover {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+
+.pdf-actions .btn,
+.publications ol.bibliography li .links a.btn {
+  text-transform: none;
+}
+
+.research-section-heading {
+  border-bottom: 1px solid var(--global-divider-color);
+  color: var(--global-text-color);
+  font-family: "Roboto Slab", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  text-align: left;
+}
+
+.publications ol.bibliography + .research-section-heading {
+  margin-top: 2.5rem;
+}
+
+.cv-pdf-preview {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.25rem;
+  display: block;
+  min-height: 760px;
+  width: 100%;
+}
+
+.publication-note {
+  color: var(--global-text-color-light);
+  font-size: 0.875rem;
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 576px) {
+  .profile.float-right {
+    float: none !important;
+    margin: 0 auto 1.25rem;
+  }
+
+  .profile .headshot {
+    max-width: 220px;
+  }
+
+  .profile + .clearfix {
+    overflow: visible;
+  }
+
+  .cv-pdf-preview {
+    min-height: 560px;
+  }
+}

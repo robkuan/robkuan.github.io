@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>cv | Robert Kuan</title>
+    <title>research | Robert Kuan</title>
     <meta name="author" content="Robert Kuan">
-    <meta name="description" content="Curriculum vitae for Robert Kuan.">
-    <meta name="keywords" content="Robert Kuan CV, curriculum vitae">
+    <meta name="description" content="Research and publications by Robert Kuan.">
+    <meta name="keywords" content="Robert Kuan research, publications, consumer behavior, behavior change">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/mdb.min.css">
     <link defer rel="stylesheet" href="/assets/css/academicons.min.css">
@@ -17,8 +17,9 @@
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css" media="" id="highlight_theme_light">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/robkuan.css">
-    <link rel="canonical" href="https://www.robkuan.com/cv/">
+    <link rel="canonical" href="https://www.robkuan.com/research/">
     <script src="/assets/js/theme.js"></script>
+    <script defer src="/assets/js/research.js"></script>
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css" media="none" id="highlight_theme_dark">
     <script>
       initTheme();
@@ -38,8 +39,8 @@
           <div class="collapse navbar-collapse text-right" id="navbarNav">
             <ul class="navbar-nav ml-auto flex-nowrap">
               <li class="nav-item"><a class="nav-link" href="/">home</a></li>
-              <li class="nav-item"><a class="nav-link" href="/research/">research</a></li>
-              <li class="nav-item active"><a class="nav-link" href="/cv/">cv <span class="sr-only">(current)</span></a></li>
+              <li class="nav-item active"><a class="nav-link" href="/research/">research <span class="sr-only">(current)</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="/cv/">cv</a></li>
               <li class="toggle-container">
                 <button id="light-toggle" title="Change theme">
                   <i class="ti ti-sun-moon" id="light-toggle-system"></i>
@@ -59,11 +60,12 @@
     <div class="container mt-5" role="main">
       <div class="post">
         <article>
-          <!-- To update the CV, replace assets/pdf/cv.pdf. If browser preview caching persists, update the v= date below in both places. -->
-          <div class="pdf-actions text-center">
-            <a href="/assets/pdf/cv.pdf?v=2026-06-10" class="btn btn-sm z-depth-0" role="button" download="Robert-Kuan-CV.pdf">Download Full CV</a>
+          <div class="publications" id="publication-list" aria-live="polite">
+            <p>Loading publications...</p>
           </div>
-          <iframe class="cv-pdf-preview" src="/assets/pdf/cv.pdf?v=2026-06-10" title="Robert Kuan CV PDF preview"></iframe>
+          <noscript>
+            <p>Enable JavaScript to view publications.</p>
+          </noscript>
         </article>
       </div>
     </div>
