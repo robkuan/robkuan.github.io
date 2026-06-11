@@ -76,14 +76,23 @@ async function assertResearch() {
     assert(!publication.pdf_url, `Publication ${index} should not define pdf_url`);
     if (publication.paper_url) new URL(publication.paper_url);
   }
+
+  const jobMarketPaper = publications[0];
+  assert(jobMarketPaper.title.includes("Don't Just Prompt—Suggest"), "Job market paper title should use a single em dash");
+  assert(jobMarketPaper.title.includes("(Job Market Paper)"), "Job market paper label should appear in the title");
+  assert(!jobMarketPaper.title.includes("--"), "Job market paper title should not contain a double hyphen");
+  assert(!jobMarketPaper.title.includes("——"), "Job market paper title should not contain a double em dash");
+  assert(!/job market paper/i.test(jobMarketPaper.note || ""), "Job market paper label should not appear in the note");
 }
 
 function assertHome(html) {
   assert(html.includes("https://www.linkedin.com/in/robkuan/"), "Home page must include the LinkedIn profile link");
   assert(html.includes("mailto:rkuan@wharton.upenn.edu"), "Home page must include the email button");
   assert(!html.includes("/assets/pdf/cv.pdf?v=2026-06-10"), "Home page should not include a CV icon link");
-  assert(html.includes("PhD Candidate in"), "Home page must include the role line");
-  assert(html.includes("The Wharton School</a>, University of Pennsylvania"), "Home page must keep Wharton and Penn on the same line");
+  assert(
+    html.includes('PhD Candidate at <a href="https://www.wharton.upenn.edu/" rel="external nofollow noopener" target="_blank">The Wharton School</a>, University of Pennsylvania'),
+    "Home page must include the one-line Wharton role"
+  );
   assert(!html.includes('class="more-info"'), "Home page should not include profile more-info text");
   assert(!/selected publications/i.test(html), "Home page should not include a selected publications section");
 }

@@ -25,6 +25,13 @@ try {
         throw new Error(`${path} overflows horizontally at ${viewport.width}px`);
       }
 
+      if (viewport.width <= 576) {
+        const footerPosition = await page.evaluate(() => getComputedStyle(document.querySelector("footer")).position);
+        if (footerPosition === "fixed") {
+          throw new Error(`${path} uses a fixed footer at ${viewport.width}px`);
+        }
+      }
+
       if (path === "/cv/") {
         const cvButton = page.locator('a[href*="/assets/pdf/cv.pdf"]');
         if ((await cvButton.count()) !== 1) {

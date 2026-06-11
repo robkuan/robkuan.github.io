@@ -94,6 +94,15 @@
 }
 
 @media (max-width: 576px) {
+  body {
+    padding-bottom: 0;
+  }
+
+  footer.fixed-bottom {
+    margin-top: 2rem;
+    position: static;
+  }
+
   .profile.float-right {
     float: none !important;
     margin: 0 auto 1.25rem;
