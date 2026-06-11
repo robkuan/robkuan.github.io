@@ -37,9 +37,15 @@ assertCvPreview(pages.get("/cv/"));
 await assertResearch();
 await assertInternalLinks();
 await assertRemovedRoutes();
+await assertThemeDefault();
 
 console.log("static checks passed");
 process.exit(0);
+
+async function assertThemeDefault() {
+  const themeScript = await getText("/assets/js/theme.js");
+  assert(themeScript.includes('&&(e="light"),e},determineComputedTheme'), "Theme should default to light mode");
+}
 
 async function assertResearch() {
   const researchHtml = pages.get("/research/");
