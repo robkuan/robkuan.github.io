@@ -35,7 +35,7 @@ npm run check:browser -- http://localhost:8080
 See `WEBSITE_EDITING_GUIDE.md` for a page-by-page editing map.
 
 - Home page: edit `index.html`.
-- CV: replace `assets/pdf/cv.pdf` with a new PDF using the same filename. The CV page's download button and preview both point to this file. If a browser keeps showing an old preview, update the `v=YYYY-MM-DD` date in both CV URLs in `cv/index.html` to force a refresh.
+- CV: replace `assets/pdf/cv.pdf` with a new PDF using the same filename, regenerate the mobile preview images in `assets/img/cv/`, and update the `v=YYYY-MM-DD` date in both CV URLs in `cv/index.html` if browser caching persists.
 - Research: edit `assets/json/publications.json`.
 
 ### Manual Research Edits
@@ -49,8 +49,8 @@ The Research page is data-driven. Small text edits do not require changing HTML:
    - `note`: visible short note under the citation, such as `Job market paper.`
    - `status`: visible status line, such as `invited for revision and resubmission`.
    - `paper_url`: link used by the `Paper` button. Leave it out if there is no public paper link.
-   - `abstract`: text shown when a visitor clicks `Abs`.
-   - `section`: use `publications` or `work_in_progress`.
+   - `abstract`: text shown when a visitor clicks `Abstract`.
+   - `section`: use `publications` for visible research entries.
 4. Keep valid JSON syntax: quote every string, separate fields with commas, and do not add comments inside the JSON file.
 5. Run `scripts/check-site.sh` after editing.
 

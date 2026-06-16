@@ -27,6 +27,10 @@
   margin-top: 0.25rem;
 }
 
+.home-job-market {
+  text-align: center;
+}
+
 .profile.float-right {
   margin-bottom: 1rem;
   margin-left: 1.5rem;
@@ -87,6 +91,20 @@
   width: 100%;
 }
 
+.cv-mobile-preview {
+  display: none;
+}
+
+.cv-mobile-preview img {
+  background: #fff;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.25rem;
+  display: block;
+  height: auto;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
 .publication-note {
   color: var(--global-text-color-light);
   font-size: 0.875rem;
@@ -117,6 +135,10 @@
   }
 
   .cv-pdf-preview {
-    min-height: 560px;
+    display: none;
+  }
+
+  .cv-mobile-preview {
+    display: block;
   }
 }

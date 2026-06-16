@@ -37,19 +37,88 @@ try {
         if ((await cvButton.count()) !== 1) {
           throw new Error("/cv/ is missing the Download Full CV link");
         }
+        const embeddedPreview = page.locator(".cv-pdf-preview");
+        const mobilePreview = page.locator(".cv-mobile-preview");
+        const mobilePreviewPages = page.locator(".cv-mobile-preview img");
+        if (viewport.width <= 576) {
+          if (await embeddedPreview.isVisible()) {
+            throw new Error("/cv/ should not show the embedded PDF iframe on mobile");
+          }
+          if (!(await mobilePreview.isVisible())) {
+            throw new Error("/cv/ should show the mobile CV preview on mobile");
+          }
+          if ((await mobilePreviewPages.count()) !== 8) {
+            throw new Error("/cv/ should show all 8 CV preview pages on mobile");
+          }
+          const canScrollPastFirstPage = await page.evaluate(() => {
+            const firstPage = document.querySelector(".cv-mobile-preview img");
+            if (!firstPage) return false;
+            const before = window.scrollY;
+            window.scrollTo(0, firstPage.getBoundingClientRect().bottom + window.scrollY + 10);
+            return window.scrollY > before;
+          });
+          if (!canScrollPastFirstPage) {
+            throw new Error("/cv/ cannot scroll past the first mobile preview page");
+          }
+        } else {
+          if (!(await embeddedPreview.isVisible())) {
+            throw new Error("/cv/ should show the embedded PDF iframe on desktop");
+          }
+          if (await mobilePreview.isVisible()) {
+            throw new Error("/cv/ should not show the mobile CV preview on desktop");
+          }
+        }
       } else if (path === "/research/") {
         const sectionHeadings = page.locator(".research-section-heading");
-        if ((await sectionHeadings.count()) !== 2) {
-          throw new Error("/research/ should show two section headings");
+        if ((await sectionHeadings.count()) !== 1) {
+          throw new Error("/research/ should show one section heading");
+        }
+        const badges = page.locator(".publications ol.bibliography li .abbr abbr, .publications ol.bibliography li abbr.badge");
+        if ((await badges.count()) !== 0) {
+          throw new Error("/research/ should not show publication abbreviation badges");
+        }
+        const abstractButtons = page.locator(".publications ol.bibliography li .links a.abstract");
+        if ((await abstractButtons.count()) !== 5) {
+          throw new Error("/research/ should show one abstract toggle for each publication");
+        }
+        if ((await abstractButtons.first().textContent())?.trim() !== "Abstract") {
+          throw new Error('/research/ should label abstract toggles "Abstract"');
         }
         const hasTopResearchTitle = await page.locator('h1:has-text("research")').count();
         if (hasTopResearchTitle !== 0) {
           throw new Error('/research/ should not show a top "research" header');
         }
+        const hasManuscriptPreparationNote = await page.evaluate(() => document.body.textContent.includes("Manuscript in preparation for submission"));
+        if (hasManuscriptPreparationNote) {
+          throw new Error("/research/ should not show the manuscript preparation note");
+        }
       } else {
         const firstHeading = await page.locator("h1").first().textContent();
         if (!firstHeading || !firstHeading.trim()) {
           throw new Error(`${path} is missing a visible h1`);
+        }
+        const jobMarketLine = page.locator(".home-job-market");
+        if ((await jobMarketLine.count()) !== 1) {
+          throw new Error("/ should show one centered academic job market line");
+        }
+        const jobMarketText = await jobMarketLine.textContent();
+        if (!/^I will be on the 2026–2027 .*job market\.$/.test(jobMarketText?.trim() || "")) {
+          throw new Error("/ has the wrong academic job market line");
+        }
+        const jobMarketLayout = await page.evaluate(() => {
+          const line = document.querySelector(".home-job-market");
+          const textContainer = line?.closest(".clearfix");
+          if (!line || !textContainer) return null;
+          const lineRect = line.getBoundingClientRect();
+          const containerRect = textContainer.getBoundingClientRect();
+          return {
+            textAlign: getComputedStyle(line).textAlign,
+            lineCenter: lineRect.left + lineRect.width / 2,
+            containerCenter: containerRect.left + containerRect.width / 2
+          };
+        });
+        if (!jobMarketLayout || jobMarketLayout.textAlign !== "center" || Math.abs(jobMarketLayout.lineCenter - jobMarketLayout.containerCenter) > 1) {
+          throw new Error("/ should center the academic job market line under the text container");
         }
       }
     }

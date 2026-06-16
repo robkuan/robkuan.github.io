@@ -26,8 +26,7 @@ function renderBySection(publications) {
     .sort((a, b) => a.index - b.index);
 
   const sectionLabels = new Map([
-    ["publications", "publications and working papers"],
-    ["work_in_progress", "selected work in progress"]
+    ["publications", "publications and working papers"]
   ]);
 
   const bySection = new Map();
@@ -60,16 +59,8 @@ function renderPublication(publication) {
   const row = document.createElement("div");
   row.className = "row";
 
-  const abbrCol = document.createElement("div");
-  abbrCol.className = "col col-sm-2 abbr";
-
-  const abbr = document.createElement("abbr");
-  abbr.className = "badge rounded w-100";
-  abbr.textContent = publication.abbr || abbreviationFor(publication.venue);
-  abbrCol.append(abbr);
-
   const body = document.createElement("div");
-  body.className = "col-sm-8";
+  body.className = "col-sm-12";
 
   const title = document.createElement("div");
   title.className = "title";
@@ -98,7 +89,7 @@ function renderPublication(publication) {
   const links = document.createElement("div");
   links.className = "links";
   addLink(links, "Paper", publication.paper_url);
-  if (publication.abstract) addToggle(links, "Abs");
+  if (publication.abstract) addToggle(links, "Abstract");
 
   body.append(title, authors);
   if (periodical.textContent) body.append(periodical);
@@ -114,7 +105,7 @@ function renderPublication(publication) {
     body.append(abstract);
   }
 
-  row.append(abbrCol, body);
+  row.append(body);
   item.append(row);
   return item;
 }
@@ -154,11 +145,4 @@ function formatAuthors(authorText) {
     }
   });
   return nodes.length ? nodes : [document.createTextNode(authorText)];
-}
-
-function abbreviationFor(venue) {
-  if (!venue) return "Paper";
-  if (/Proceedings of the National Academy of Sciences/i.test(venue)) return "PNAS";
-  if (/Nature/i.test(venue)) return "Nature";
-  return "Paper";
 }

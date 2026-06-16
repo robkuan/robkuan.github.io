@@ -57,16 +57,15 @@ assets/js/research.js
 
 Common `publications.json` fields:
 
-- `section`: use `publications` or `work_in_progress`.
+- `section`: use `publications` for visible research entries.
 - `title`: the displayed title.
 - `authors`: author list.
 - `venue`: journal or publication venue.
 - `status`: status text, such as `invited for revision and resubmission`.
-- `abbr`: the small badge on the left, such as `JCR`, `PNAS`, or `WIP`.
 - `year`: displayed after the venue when present. Delete the full line to remove it.
 - `paper_url`: creates the `Paper` button. Delete the full line to remove the button.
 - `note`: visible short note under the citation.
-- `abstract`: text shown when clicking `Abs`.
+- `abstract`: text shown when clicking `Abstract`.
 
 Keep the file valid JSON:
 
@@ -96,6 +95,12 @@ The download button and preview both point to this same file. If the browser pre
 ```
 
 Change both copies to the same new date.
+
+The mobile CV preview uses generated page images. After replacing `assets/pdf/cv.pdf`, regenerate them from the PDF:
+
+```bash
+gs -q -dNOSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r120 -sOutputFile=assets/img/cv/cv-page-%02d.png assets/pdf/cv.pdf
+```
 
 ## Shared Styling
 

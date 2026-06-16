@@ -5,7 +5,6 @@
     "authors": "Robert Kuan, Katherine L. Milkman, Sean F. Ellis, Dena M. Gromet, Kevin V. Zhu, Youngwoo Jung, Christophe Van den Bulte, Ron Berman, Eugen Dimant, Ramon A. Silvera Zumaran, Madeline K. Paxson, and Angela L. Duckworth",
     "venue": "Journal of Consumer Research",
     "status": "invited for revision and resubmission",
-    "abbr": "JCR",
     "paper_url": "https://drive.google.com/open?id=1NYbVD4qxDuhPO4cPX6lNxJXZSZtovKZu&usp=drive_fs",
     "note": "Winner of the Franco Nicosia Best Short Competitive Paper Award at the ACR Conference (2024).",
     "abstract": "Prompting consumers to plan when and where they will follow through on a goal can close intention-behavior gaps. Such \"planning prompts\" typically require consumers to form their own plans, and prior research suggests this should enhance follow-through because self-set plans capitalize on the benefits of consumer autonomy (i.e., commitment, memorability). However, we propose that adding a suggested plan - specifying a proposed time, day, and location for action - alongside a planning prompt can further boost follow-through. We theorize that a suggested plan increases the ease of planning by reducing complexity and cognitive effort, which could be more important than bolstering consumer autonomy in the planning process. In a field experiment (N = 1,012,143) with a national U.S. pharmacy chain, we find that planning prompts including a suggested plan led to 2.45% more vaccinations than planning prompts alone. In a second field experiment (N = 985,145), we show that planning prompts offering a suggested plan outperformed best-practice reminders by 3.26%. Our studies also provide evidence that a planning prompt offering a suggested plan acts as a reference point or anchor, a heuristic that can simplify the decision process; consumers are more likely to get vaccinated both at and near the time of day and day of the week mentioned in the suggestion, compared to customers who only received a planning prompt without a suggested plan."
@@ -16,7 +15,6 @@
     "authors": "Jan G. Voelkel, Robert Kuan, Katherine L. Milkman, Lauren Eskreis-Winkler, and Kevin V. Zhu",
     "venue": "Management Science",
     "status": "invited for revision and resubmission",
-    "abbr": "MS",
     "paper_url": "https://drive.google.com/file/d/1XKve7kwqPbBUVcPfckriTsBj74A3gjCw/view?usp=sharing",
     "abstract": "Many societies label certain dates to set time aside for the commemoration of an important event, individual, group, or cause (e.g., Martin Luther King Jr. Day, Mother's Day). Based on prior research on mental accounting, we theorize that labeling dates may produce a \"time-is-right effect\" whereby individuals who are reminded of the label on a given date (e.g., Earth Day) are more likely to donate to an organization whose mission matches that label (e.g., The Rainforest Alliance). Across nine experiments (all preregistered; total N = 10,226), including three hypothetical and six incentive-compatible experiments, we find consistent evidence for a large \"time-is-right effect\"; labeling dates increased donations to charitable organizations that serve causes aligned with a given date's label by an average of 11 percentage points in incentivized studies. We further provide evidence that this effect occurs because labeling dates both makes the associated cause more salient (Study 3) and provides a justification for donating to that cause on those dates (Studies 1, 2, and 4). These findings extend a small prior literature suggesting that date labels can shape financial decisions and consumer behavior more broadly and offer new insight into why mental accounting matters."
   },
@@ -26,8 +24,6 @@
     "authors": "Ayelet Gneezy, Seyi Lawal, Robert Kuan, Katherine L. Milkman, and Leif D. Nelson",
     "venue": "Journal of Consumer Research",
     "status": "invited for review",
-    "abbr": "JCR",
-    "note": "Manuscript in preparation for submission.",
     "abstract": "Conducted in real-world settings - in retail environments, communities, organizations, and on digital platforms - field experiments allow researchers to test theoretically grounded hypotheses under conditions where people make consequential decisions. This realism offers a powerful complement to lab and online studies, helping bridge the gap between controlled experimentation and lived behavior. Yet the very features that make field experiments valuable also make them difficult to execute, replicate, and evaluate. In this paper, we propose practical reporting guidelines for field experiments in consumer research. Our aim is twofold. First, we seek to improve the quality and consistency of field experiments by establishing clearer norms for disclosure. Because rigorous execution and transparency are deeply intertwined, we also offer best practices for building transparency in from the outset - across both design and execution - so that disclosure becomes a natural product of how the study is conducted rather than an afterthought. Second, we seek to ensure that reviewers, editors, and readers can better assess the design, execution, and validity of field experiments, and that researchers have the information needed to replicate, extend, and probe the robustness of published findings. By raising the standard for transparency while remaining attentive to the practical constraints of field settings, we hope to make it easier for high-quality field experiments to be recognized, trusted, and built upon."
   },
   {
@@ -35,7 +31,6 @@
     "title": "Behavioral Nudges Prevent Loan Delinquencies at Scale: A 13-Million-Person Field Experiment",
     "authors": "Robert Kuan, Kristin Blagg, Benjamin L. Castleman, Rajeev Darolia, Jordan D. Matsudaira, Katherine L. Milkman, and Lesley J. Turner",
     "venue": "Proceedings of the National Academy of Sciences",
-    "abbr": "PNAS",
     "year": 2025,
     "paper_url": "https://www.pnas.org/doi/10.1073/pnas.2416708122",
     "abstract": "Americans collectively hold over $1.6 trillion in student loan debt, and over the last decade millions of borrowers have defaulted on loans, with serious consequences for their financial health. In a 13-million-person field experiment with the U.S. Department of Education, we tested the effectiveness of different email interventions to inform borrowers about different repayment options after a missed loan payment. Our interventions tested whether monthly behaviorally informed emails, follow-up reminders, framing benefits in percentage (vs. dollar) terms, and providing just one recommended action step at a time (vs. two) affect borrower outcomes. We find that (i) behaviorally informed emails reduce estimated 60-day delinquencies by 0.42pp, (ii) reminders boost the efficacy of such emails by 0.57pp, (iii) describing potential savings in percentage terms is more effective than describing these benefits in dollar terms, reducing estimated delinquencies by 0.14pp, and (iv) encouraging two actions (i.e., enrollment in IDR plans and auto-debit programs) repeatedly across two emails is marginally more effective than encouraging one action at a time across two emails, reducing estimated delinquencies by 0.05pp. Overall, if scaled to all 13 million borrowers in our experiment, we estimate that our best-performing intervention would have averted approximately 79,800 60-day delinquencies. Our findings highlight the benefits of describing potential savings in percentage terms, which may magnify perceived savings for recipients, the risks of over-simplification, and demonstrate that nudges can be an effective, low-cost complement to other policies for reducing delinquencies and supporting borrowers with student loan debt."
@@ -45,30 +40,8 @@
     "title": "Megastudy Shows That Reminders Boost Vaccination but Adding Free Rides Does Not",
     "authors": "Katherine L. Milkman, Sean F. Ellis, Dena M. Gromet, Youngwoo Jung, Alex S. Luscher, Rayyan S. Mobarak, Madeline K. Paxson, Ramon A. Silvera Zumaran, Robert Kuan, Ron Berman, Neil A. Lewis Jr., John A. List, Mitesh S. Patel, Christophe Van den Bulte, Kevin G. Volpp, Maryann V. Beauvais, Jonathon K. Bellows, Cheryl A. Marandola, and Angela L. Duckworth",
     "venue": "Nature",
-    "abbr": "Nature",
     "year": 2024,
     "paper_url": "https://www.nature.com/articles/s41586-024-07591-x",
     "abstract": "Encouraging routine COVID-19 vaccinations is likely to be a crucial policy challenge for decades to come. To avert hundreds of thousands of unnecessary hospitalizations and deaths, adoption will need to be higher than it was in the autumn of 2022 or 2023, when less than one-fifth of Americans received booster vaccines. One approach to encouraging vaccination is to eliminate the friction of transportation hurdles. Previous research has shown that friction can hinder follow-through and that individuals who live farther from COVID-19 vaccination sites are less likely to get vaccinated. However, the value of providing free round-trip transportation to vaccination sites is unknown. Here we show that offering people free round-trip Lyft rides to pharmacies has no benefit over and above sending them behaviourally informed text messages reminding them to get vaccinated. We determined this by running a megastudy with millions of CVS Pharmacy patients in the United States testing the effects of (1) free round-trip Lyft rides to CVS Pharmacies for vaccination appointments and (2) seven different sets of behaviourally informed vaccine reminder messages. Our results suggest that offering previously vaccinated individuals free rides to vaccination sites is not a good investment in the United States, contrary to the high expectations of both expert and lay forecasters. Instead, people in the United States should be sent behaviourally informed COVID-19 vaccination reminders, which increased the 30-day COVID-19 booster uptake by 21% (1.05 percentage points) and spilled over to increase 30-day influenza vaccinations by 8% (0.34 percentage points) in our megastudy. More rigorous testing of interventions to promote vaccination is needed to ensure that evidence-based solutions are deployed widely and that ineffective but intuitively appealing tools are discontinued."
-  },
-  {
-    "section": "work_in_progress",
-    "title": "A Large-Scale Field Experiment Examining the Relative Benefits of Foot-in-the-Door and Door-in-the-Face Persuasion Tactics on Savings Behavior",
-    "authors": "Grace Zhang, Robert Kuan, Katherine L. Milkman, and Shlomo Benartzi",
-    "abbr": "WIP",
-    "status": "Field experiment with 13,032 participants completed."
-  },
-  {
-    "section": "work_in_progress",
-    "title": "Prescriptive Mental Accounts: Do Mental Accounts Framed for Self-Control Decrease Unwanted Digital Technology Usage?",
-    "authors": "Robert Kuan, Katherine L. Milkman, Hal E. Hershfield, and Alp Sungu",
-    "abbr": "WIP",
-    "status": "Field experiment planned."
-  },
-  {
-    "section": "work_in_progress",
-    "title": "All or Nothing: Categorical Goals Outperform Incremental Goals in Reducing Digital Consumption",
-    "authors": "Grace Zhang, Robert Kuan, Katherine L. Milkman, Marissa A. Sharif, and Angela L. Duckworth",
-    "abbr": "WIP",
-    "status": "Field experiment planned."
   }
 ]

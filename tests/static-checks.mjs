@@ -53,31 +53,37 @@ async function assertResearch() {
 
   const publications = JSON.parse(await getText("/assets/json/publications.json"));
   assert(Array.isArray(publications), "Publications source must be an array");
-  assert(publications.length === 8, `Research page should list 8 CV research entries; got ${publications.length}`);
+  assert(publications.length === 5, `Research page should list 5 CV research entries; got ${publications.length}`);
   assert(
     publications.filter((publication) => publication.section === "publications").length === 5,
     "Research page should have 5 publications and working papers"
   );
   assert(
-    publications.filter((publication) => publication.section === "work_in_progress").length === 3,
-    "Research page should have 3 selected work in progress entries"
+    publications.every((publication) => publication.section !== "work_in_progress"),
+    "Research page should not include work in progress entries"
   );
 
   const renderer = await getText("/assets/js/research.js");
   assert(!renderer.includes('"DOI"'), "Research renderer should not create DOI buttons");
   assert(!renderer.includes('"PDF"'), "Research renderer should not create PDF buttons");
   assert(renderer.includes("publications and working papers"), "Research renderer should create the publications section");
-  assert(renderer.includes("selected work in progress"), "Research renderer should create the work in progress section");
+  assert(!renderer.includes("selected work in progress"), "Research renderer should not create the work in progress section");
   assert(renderer.includes("research-section-heading"), "Research renderer should use visible left-aligned section headings");
+  assert(renderer.includes('"Abstract"'), "Research renderer should use the full Abstract button label");
+  assert(!renderer.includes('"Abs"'), "Research renderer should not use the abbreviated Abs button label");
+  assert(!renderer.includes("badge rounded"), "Research renderer should not create publication abbreviation badges");
+  assert(!renderer.includes("abbreviationFor"), "Research renderer should not recreate publication abbreviations from venue names");
 
   for (const [index, publication] of publications.entries()) {
     assert(publication.title, `Publication ${index} is missing a title`);
     assert(publication.authors, `Publication ${index} is missing authors`);
     assert(publication.section, `Publication ${index} is missing a section`);
+    assert(!publication.abbr, `Publication ${index} should not define an abbreviation badge`);
     if (publication.section === "publications") {
       assert(publication.venue, `Publication ${index} is missing a venue`);
       assert(publication.abstract, `Publication ${index} is missing an abstract`);
     }
+    assert(!/Manuscript in preparation for submission/i.test(publication.note || ""), `Publication ${index} should not show the manuscript preparation note`);
     assert(!publication.doi_url, `Publication ${index} should not define doi_url`);
     assert(!publication.pdf_url, `Publication ${index} should not define pdf_url`);
     if (publication.paper_url) new URL(publication.paper_url);
@@ -98,6 +104,10 @@ function assertHome(html) {
   assert(
     html.includes('PhD Candidate at <a href="https://www.wharton.upenn.edu/" rel="external nofollow noopener" target="_blank">The Wharton School</a>, University of Pennsylvania'),
     "Home page must include the one-line Wharton role"
+  );
+  assert(
+    /<div class="clearfix">[\s\S]*<p class="home-job-market"><em>[^<]*2026–2027[^<]*job market\.<\/em><\/p>[\s\S]*<\/div>/.test(html),
+    "Home page must include the centered job market line inside the text container"
   );
   assert(!html.includes('class="more-info"'), "Home page should not include profile more-info text");
   assert(!/selected publications/i.test(html), "Home page should not include a selected publications section");
@@ -142,6 +152,9 @@ function assertCvPreview(html) {
   assert(previewMatch, "CV page must embed /assets/pdf/cv.pdf");
   assert(downloadMatch[1] === previewMatch[1], "CV download and preview must point at the same PDF URL");
   assert(html.includes("Download Full CV"), "CV page must have one Download Full CV button");
+  assert(html.includes('class="cv-mobile-preview"'), "CV page must include a mobile CV preview");
+  const mobilePreviewPages = [...html.matchAll(/src="([^"]*\/assets\/img\/cv\/cv-page-\d{2}\.png)"/g)];
+  assert(mobilePreviewPages.length === 8, `CV page should include 8 mobile preview pages; got ${mobilePreviewPages.length}`);
   assert(!html.includes('class="post-title">cv'), "CV page should not show a CV title header");
   assert(!html.includes("Embedded preview"), "CV page should not include embedded preview helper text");
   assert(!html.includes("Open PDF"), "CV page should not include the old Open PDF button");
