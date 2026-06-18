@@ -88,19 +88,13 @@ Update the CV PDF by replacing:
 assets/pdf/cv.pdf
 ```
 
-The download button and preview both point to this same file. If the browser preview shows an old PDF after replacement, update the cache-busting date in both URLs in `cv/index.html`:
+The download button and embedded preview both point to this PDF. The preview includes URL parameters that ask supported PDF viewers to hide navigation panes by default. If the browser shows an old PDF after replacement, update the cache-busting date in both CV URLs in `cv/index.html`:
 
 ```html
 /assets/pdf/cv.pdf?v=2026-06-10
 ```
 
 Change both copies to the same new date.
-
-The mobile CV preview uses generated page images. After replacing `assets/pdf/cv.pdf`, regenerate them from the PDF:
-
-```bash
-gs -q -dNOSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r120 -sOutputFile=assets/img/cv/cv-page-%02d.png assets/pdf/cv.pdf
-```
 
 ## Shared Styling
 

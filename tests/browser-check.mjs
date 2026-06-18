@@ -38,35 +38,32 @@ try {
           throw new Error("/cv/ is missing the Download Full CV link");
         }
         const embeddedPreview = page.locator(".cv-pdf-preview");
-        const mobilePreview = page.locator(".cv-mobile-preview");
-        const mobilePreviewPages = page.locator(".cv-mobile-preview img");
-        if (viewport.width <= 576) {
-          if (await embeddedPreview.isVisible()) {
-            throw new Error("/cv/ should not show the embedded PDF iframe on mobile");
-          }
-          if (!(await mobilePreview.isVisible())) {
-            throw new Error("/cv/ should show the mobile CV preview on mobile");
-          }
-          if ((await mobilePreviewPages.count()) !== 8) {
-            throw new Error("/cv/ should show all 8 CV preview pages on mobile");
-          }
-          const canScrollPastFirstPage = await page.evaluate(() => {
-            const firstPage = document.querySelector(".cv-mobile-preview img");
-            if (!firstPage) return false;
-            const before = window.scrollY;
-            window.scrollTo(0, firstPage.getBoundingClientRect().bottom + window.scrollY + 10);
-            return window.scrollY > before;
-          });
-          if (!canScrollPastFirstPage) {
-            throw new Error("/cv/ cannot scroll past the first mobile preview page");
-          }
-        } else {
-          if (!(await embeddedPreview.isVisible())) {
-            throw new Error("/cv/ should show the embedded PDF iframe on desktop");
-          }
-          if (await mobilePreview.isVisible()) {
-            throw new Error("/cv/ should not show the mobile CV preview on desktop");
-          }
+        const embeddedPreviewSrc = await embeddedPreview.getAttribute("src", { timeoutMs: 1000 });
+        if (!embeddedPreviewSrc?.includes("navpanes=0") || !embeddedPreviewSrc.includes("pagemode=none")) {
+          throw new Error("/cv/ should request hidden PDF navigation panes in the embedded preview");
+        }
+        if (!(await embeddedPreview.isVisible())) {
+          throw new Error("/cv/ should show the embedded PDF iframe");
+        }
+        const rasterPreviewCount = await page.locator(".cv-mobile-preview, .cv-mobile-preview img").count();
+        if (rasterPreviewCount !== 0) {
+          throw new Error("/cv/ should not show raster CV preview images");
+        }
+        const iframeLayout = await page.evaluate(() => {
+          const iframe = document.querySelector(".cv-pdf-preview");
+          if (!iframe) return null;
+          const rect = iframe.getBoundingClientRect();
+          return {
+            height: rect.height,
+            viewportHeight: window.innerHeight,
+            scrolling: iframe.getAttribute("scrolling")
+          };
+        });
+        if (!iframeLayout || iframeLayout.scrolling !== "yes") {
+          throw new Error("/cv/ should use a native scrollable PDF iframe");
+        }
+        if (viewport.width <= 576 && iframeLayout.height < iframeLayout.viewportHeight * 0.6) {
+          throw new Error("/cv/ mobile PDF iframe is too short to be usable");
         }
       } else if (path === "/research/") {
         const sectionHeadings = page.locator(".research-section-heading");

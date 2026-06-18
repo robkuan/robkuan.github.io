@@ -150,11 +150,13 @@ function assertCvPreview(html) {
   const previewMatch = html.match(/<iframe\b[^>]+src="([^"]*\/assets\/pdf\/cv\.pdf[^"]*)"/);
   assert(downloadMatch, "CV page must link to /assets/pdf/cv.pdf");
   assert(previewMatch, "CV page must embed /assets/pdf/cv.pdf");
-  assert(downloadMatch[1] === previewMatch[1], "CV download and preview must point at the same PDF URL");
+  assert(downloadMatch[1].split("#")[0] === previewMatch[1].split("#")[0], "CV download and preview must point at the same PDF URL");
+  assert(previewMatch[1].includes("navpanes=0"), "CV embedded preview should request hidden navigation panes");
+  assert(previewMatch[1].includes("pagemode=none"), "CV embedded preview should request no PDF sidebar page mode");
+  assert(html.includes('scrolling="yes"'), "CV embedded preview should explicitly request iframe scrolling");
   assert(html.includes("Download Full CV"), "CV page must have one Download Full CV button");
-  assert(html.includes('class="cv-mobile-preview"'), "CV page must include a mobile CV preview");
-  const mobilePreviewPages = [...html.matchAll(/src="([^"]*\/assets\/img\/cv\/cv-page-\d{2}\.png)"/g)];
-  assert(mobilePreviewPages.length === 8, `CV page should include 8 mobile preview pages; got ${mobilePreviewPages.length}`);
+  assert(!html.includes('class="cv-mobile-preview"'), "CV page should not use raster mobile CV preview images");
+  assert(!html.includes("/assets/img/cv/cv-page-"), "CV page should use the native PDF preview on mobile");
   assert(!html.includes('class="post-title">cv'), "CV page should not show a CV title header");
   assert(!html.includes("Embedded preview"), "CV page should not include embedded preview helper text");
   assert(!html.includes("Open PDF"), "CV page should not include the old Open PDF button");

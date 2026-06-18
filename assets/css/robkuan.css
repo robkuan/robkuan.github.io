@@ -87,21 +87,8 @@
   border: 1px solid var(--global-divider-color);
   border-radius: 0.25rem;
   display: block;
+  height: 80vh;
   min-height: 760px;
-  width: 100%;
-}
-
-.cv-mobile-preview {
-  display: none;
-}
-
-.cv-mobile-preview img {
-  background: #fff;
-  border: 1px solid var(--global-divider-color);
-  border-radius: 0.25rem;
-  display: block;
-  height: auto;
-  margin-bottom: 1rem;
   width: 100%;
 }
 
@@ -135,10 +122,8 @@
   }
 
   .cv-pdf-preview {
-    display: none;
-  }
-
-  .cv-mobile-preview {
-    display: block;
+    height: 78dvh;
+    max-height: 760px;
+    min-height: 560px;
   }
 }
