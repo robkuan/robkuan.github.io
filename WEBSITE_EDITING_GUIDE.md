@@ -88,10 +88,10 @@ Update the CV PDF by replacing:
 assets/pdf/cv.pdf
 ```
 
-The download button and embedded preview both point to this PDF. The preview includes URL parameters that ask supported PDF viewers to hide navigation panes by default. iOS browsers are redirected directly to the PDF because embedded PDF iframes can get stuck on the first page there. If the browser shows an old PDF after replacement, update the cache-busting date in all CV PDF URLs in `cv/index.html`:
+The download button and embedded preview both point to this PDF. The preview includes URL parameters that ask supported PDF viewers to hide navigation panes by default. Mobile browsers are redirected directly to the PDF because embedded PDF iframes are inconsistent on phones and tablets. If the browser shows an old PDF after replacement, update the cache-busting date in all CV PDF URLs in `cv/index.html`:
 
 ```html
-/assets/pdf/cv.pdf?v=2026-06-10
+/assets/pdf/cv.pdf?v=2026-06-17
 ```
 
 Change all copies to the same new date.

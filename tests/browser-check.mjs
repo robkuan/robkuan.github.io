@@ -121,6 +121,31 @@ try {
     }
     await page.close();
   }
+
+  for (const userAgent of [
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
+    "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36"
+  ]) {
+    const page = await browser.newPage({
+      viewport: { width: 390, height: 844 },
+      userAgent,
+      isMobile: true,
+      hasTouch: true
+    });
+    try {
+      await page.route("**/assets/pdf/cv.pdf**", async (route) => {
+        await route.fulfill({
+          status: 200,
+          contentType: "text/html",
+          body: "<!doctype html><title>CV PDF redirect target</title>"
+        });
+      });
+      await page.goto(new URL("/cv/", baseUrl).toString(), { waitUntil: "load", timeout: 10000 });
+      await page.waitForURL(/\/assets\/pdf\/cv\.pdf\?v=2026-06-17/, { timeout: 5000 });
+    } finally {
+      await page.close();
+    }
+  }
 } finally {
   await browser.close();
 }

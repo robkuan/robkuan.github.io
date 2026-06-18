@@ -100,7 +100,7 @@ async function assertResearch() {
 function assertHome(html) {
   assert(html.includes("https://www.linkedin.com/in/robkuan/"), "Home page must include the LinkedIn profile link");
   assert(html.includes("mailto:rkuan@wharton.upenn.edu"), "Home page must include the email button");
-  assert(!html.includes("/assets/pdf/cv.pdf?v=2026-06-10"), "Home page should not include a CV icon link");
+  assert(!html.includes("/assets/pdf/cv.pdf"), "Home page should not include a CV icon link");
   assert(
     html.includes('PhD Candidate at <a href="https://www.wharton.upenn.edu/" rel="external nofollow noopener" target="_blank">The Wharton School</a>, University of Pennsylvania'),
     "Home page must include the one-line Wharton role"
@@ -154,9 +154,10 @@ function assertCvPreview(html) {
   assert(previewMatch[1].includes("navpanes=0"), "CV embedded preview should request hidden navigation panes");
   assert(previewMatch[1].includes("pagemode=none"), "CV embedded preview should request no PDF sidebar page mode");
   assert(html.includes('scrolling="yes"'), "CV embedded preview should explicitly request iframe scrolling");
-  assert(html.includes("openNativePdfOnIos"), "CV page should redirect iOS browsers to the native PDF viewer");
-  assert(html.includes('window.location.replace("/assets/pdf/cv.pdf?v=2026-06-10")'), "CV iOS redirect should open the CV PDF directly");
-  assert(html.includes('new URLSearchParams(window.location.search).has("embed")'), "CV iOS redirect should have an embed bypass");
+  assert(html.includes("openNativePdfOnMobile"), "CV page should redirect mobile browsers to the native PDF viewer");
+  assert(html.includes("Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile"), "CV mobile redirect should cover common mobile browsers");
+  assert(html.includes('window.location.replace("/assets/pdf/cv.pdf?v=2026-06-17")'), "CV mobile redirect should open the CV PDF directly");
+  assert(html.includes('new URLSearchParams(window.location.search).has("embed")'), "CV mobile redirect should have an embed bypass");
   assert(html.includes("Download Full CV"), "CV page must have one Download Full CV button");
   assert(!html.includes('class="cv-mobile-preview"'), "CV page should not use raster mobile CV preview images");
   assert(!html.includes("/assets/img/cv/cv-page-"), "CV page should use the native PDF preview on mobile");
