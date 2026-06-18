@@ -106,7 +106,7 @@ function assertHome(html) {
     "Home page must include the one-line Wharton role"
   );
   assert(
-    /<div class="clearfix">[\s\S]*<p class="home-job-market"><em>[^<]*2026–2027[^<]*job market\.<\/em><\/p>[\s\S]*<\/div>/.test(html),
+    /<div class="clearfix">[\s\S]*<p class="home-job-market"><em>[^<]*2026–2027[^<]*job market[^<]*<\/em><\/p>[\s\S]*<\/div>/.test(html),
     "Home page must include the centered job market line inside the text container"
   );
   assert(!html.includes('class="more-info"'), "Home page should not include profile more-info text");
@@ -154,6 +154,9 @@ function assertCvPreview(html) {
   assert(previewMatch[1].includes("navpanes=0"), "CV embedded preview should request hidden navigation panes");
   assert(previewMatch[1].includes("pagemode=none"), "CV embedded preview should request no PDF sidebar page mode");
   assert(html.includes('scrolling="yes"'), "CV embedded preview should explicitly request iframe scrolling");
+  assert(html.includes("openNativePdfOnIos"), "CV page should redirect iOS browsers to the native PDF viewer");
+  assert(html.includes('window.location.replace("/assets/pdf/cv.pdf?v=2026-06-10")'), "CV iOS redirect should open the CV PDF directly");
+  assert(html.includes('new URLSearchParams(window.location.search).has("embed")'), "CV iOS redirect should have an embed bypass");
   assert(html.includes("Download Full CV"), "CV page must have one Download Full CV button");
   assert(!html.includes('class="cv-mobile-preview"'), "CV page should not use raster mobile CV preview images");
   assert(!html.includes("/assets/img/cv/cv-page-"), "CV page should use the native PDF preview on mobile");

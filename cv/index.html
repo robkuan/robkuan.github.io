@@ -22,6 +22,12 @@
     <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css" media="none" id="highlight_theme_dark">
     <script>
       initTheme();
+      (function openNativePdfOnIos() {
+        var isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        if (isIos && !new URLSearchParams(window.location.search).has("embed")) {
+          window.location.replace("/assets/pdf/cv.pdf?v=2026-06-10");
+        }
+      })();
     </script>
   </head>
   <body class="fixed-top-nav">

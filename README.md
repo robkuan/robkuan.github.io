@@ -35,7 +35,7 @@ npm run check:browser -- http://localhost:8080
 See `WEBSITE_EDITING_GUIDE.md` for a page-by-page editing map.
 
 - Home page: edit `index.html`.
-- CV: replace `assets/pdf/cv.pdf` with a new PDF using the same filename and update the `v=YYYY-MM-DD` date in both CV URLs in `cv/index.html` if browser caching persists.
+- CV: replace `assets/pdf/cv.pdf` with a new PDF using the same filename and update the `v=YYYY-MM-DD` date in all CV URLs in `cv/index.html` if browser caching persists. iOS redirects directly to the PDF; desktop and Android use the embedded preview.
 - Research: edit `assets/json/publications.json`.
 
 ### Manual Research Edits

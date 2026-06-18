@@ -88,13 +88,13 @@ Update the CV PDF by replacing:
 assets/pdf/cv.pdf
 ```
 
-The download button and embedded preview both point to this PDF. The preview includes URL parameters that ask supported PDF viewers to hide navigation panes by default. If the browser shows an old PDF after replacement, update the cache-busting date in both CV URLs in `cv/index.html`:
+The download button and embedded preview both point to this PDF. The preview includes URL parameters that ask supported PDF viewers to hide navigation panes by default. iOS browsers are redirected directly to the PDF because embedded PDF iframes can get stuck on the first page there. If the browser shows an old PDF after replacement, update the cache-busting date in all CV PDF URLs in `cv/index.html`:
 
 ```html
 /assets/pdf/cv.pdf?v=2026-06-10
 ```
 
-Change both copies to the same new date.
+Change all copies to the same new date.
 
 ## Shared Styling
 

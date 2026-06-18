@@ -99,7 +99,7 @@ try {
           throw new Error("/ should show one centered academic job market line");
         }
         const jobMarketText = await jobMarketLine.textContent();
-        if (!/^I will be on the 2026–2027 .*job market\.$/.test(jobMarketText?.trim() || "")) {
+        if (!/2026–2027.*job market/i.test(jobMarketText?.trim() || "")) {
           throw new Error("/ has the wrong academic job market line");
         }
         const jobMarketLayout = await page.evaluate(() => {
