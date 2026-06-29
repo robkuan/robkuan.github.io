@@ -50,7 +50,7 @@ The Research page is data-driven. Small text edits do not require changing HTML:
    - `status`: visible status line, such as `invited for revision and resubmission`.
    - `paper_url`: link used by the `Paper` button. Leave it out if there is no public paper link.
    - `abstract`: text shown when a visitor clicks `Abstract`.
-   - `section`: use `publications` for visible research entries.
+   - `section`: use `working_papers` or `publications` to place the entry under the matching research heading.
 4. Keep valid JSON syntax: quote every string, separate fields with commas, and do not add comments inside the JSON file.
 5. Run `scripts/check-site.sh` after editing.
 

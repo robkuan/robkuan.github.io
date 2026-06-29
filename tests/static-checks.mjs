@@ -55,8 +55,12 @@ async function assertResearch() {
   assert(Array.isArray(publications), "Publications source must be an array");
   assert(publications.length === 5, `Research page should list 5 CV research entries; got ${publications.length}`);
   assert(
-    publications.filter((publication) => publication.section === "publications").length === 5,
-    "Research page should have 5 publications and working papers"
+    publications.filter((publication) => publication.section === "working_papers").length === 3,
+    "Research page should have 3 working papers"
+  );
+  assert(
+    publications.filter((publication) => publication.section === "publications").length === 2,
+    "Research page should have 2 publications"
   );
   assert(
     publications.every((publication) => publication.section !== "work_in_progress"),
@@ -66,7 +70,9 @@ async function assertResearch() {
   const renderer = await getText("/assets/js/research.js");
   assert(!renderer.includes('"DOI"'), "Research renderer should not create DOI buttons");
   assert(!renderer.includes('"PDF"'), "Research renderer should not create PDF buttons");
-  assert(renderer.includes("publications and working papers"), "Research renderer should create the publications section");
+  assert(renderer.includes('["working_papers", "working papers"]'), "Research renderer should create the working papers section");
+  assert(renderer.includes('["publications", "publications"]'), "Research renderer should create the publications section");
+  assert(!renderer.includes("publications and working papers"), "Research renderer should not create the old combined section");
   assert(!renderer.includes("selected work in progress"), "Research renderer should not create the work in progress section");
   assert(renderer.includes("research-section-heading"), "Research renderer should use visible left-aligned section headings");
   assert(renderer.includes('"Abstract"'), "Research renderer should use the full Abstract button label");
@@ -79,7 +85,7 @@ async function assertResearch() {
     assert(publication.authors, `Publication ${index} is missing authors`);
     assert(publication.section, `Publication ${index} is missing a section`);
     assert(!publication.abbr, `Publication ${index} should not define an abbreviation badge`);
-    if (publication.section === "publications") {
+    if (publication.section === "working_papers" || publication.section === "publications") {
       assert(publication.venue, `Publication ${index} is missing a venue`);
       assert(publication.abstract, `Publication ${index} is missing an abstract`);
     }
@@ -156,7 +162,7 @@ function assertCvPreview(html) {
   assert(html.includes('scrolling="yes"'), "CV embedded preview should explicitly request iframe scrolling");
   assert(html.includes("openNativePdfOnMobile"), "CV page should redirect mobile browsers to the native PDF viewer");
   assert(html.includes("Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile"), "CV mobile redirect should cover common mobile browsers");
-  assert(html.includes('window.location.replace("/assets/pdf/cv.pdf?v=2026-06-17")'), "CV mobile redirect should open the CV PDF directly");
+  assert(html.includes('window.location.replace("/assets/pdf/cv.pdf?v=2026-06-28")'), "CV mobile redirect should open the CV PDF directly");
   assert(html.includes('new URLSearchParams(window.location.search).has("embed")'), "CV mobile redirect should have an embed bypass");
   assert(html.includes("Download Full CV"), "CV page must have one Download Full CV button");
   assert(!html.includes('class="cv-mobile-preview"'), "CV page should not use raster mobile CV preview images");

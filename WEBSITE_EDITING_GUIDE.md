@@ -57,7 +57,7 @@ assets/js/research.js
 
 Common `publications.json` fields:
 
-- `section`: use `publications` for visible research entries.
+- `section`: use `working_papers` or `publications` to place the entry under the matching research heading.
 - `title`: the displayed title.
 - `authors`: author list.
 - `venue`: journal or publication venue.
@@ -91,7 +91,7 @@ assets/pdf/cv.pdf
 The download button and embedded preview both point to this PDF. The preview includes URL parameters that ask supported PDF viewers to hide navigation panes by default. Mobile browsers are redirected directly to the PDF because embedded PDF iframes are inconsistent on phones and tablets. If the browser shows an old PDF after replacement, update the cache-busting date in all CV PDF URLs in `cv/index.html`:
 
 ```html
-/assets/pdf/cv.pdf?v=2026-06-17
+/assets/pdf/cv.pdf?v=2026-06-28
 ```
 
 Change all copies to the same new date.

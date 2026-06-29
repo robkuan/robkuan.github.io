@@ -25,9 +25,10 @@ function renderBySection(publications) {
     .map((publication, index) => ({ ...publication, index }))
     .sort((a, b) => a.index - b.index);
 
-  const sectionLabels = new Map([
-    ["publications", "publications and working papers"]
-  ]);
+  const sectionOrder = [
+    ["working_papers", "working papers"],
+    ["publications", "publications"]
+  ];
 
   const bySection = new Map();
   for (const publication of sorted) {
@@ -37,20 +38,32 @@ function renderBySection(publications) {
   }
 
   const nodes = [];
+  for (const [section, label] of sectionOrder) {
+    appendSection(nodes, label, bySection.get(section));
+  }
+
+  const knownSections = new Set(sectionOrder.map(([section]) => section));
   for (const [section, entries] of bySection) {
-    const heading = document.createElement("h2");
-    heading.className = "research-section-heading";
-    heading.textContent = sectionLabels.get(section) || section;
-
-    const list = document.createElement("ol");
-    list.className = "bibliography";
-    for (const publication of entries) {
-      list.append(renderPublication(publication));
-    }
-
-    nodes.push(heading, list);
+    if (knownSections.has(section)) continue;
+    appendSection(nodes, section, entries);
   }
   return nodes;
+}
+
+function appendSection(nodes, label, entries) {
+  if (!entries?.length) return;
+
+  const heading = document.createElement("h2");
+  heading.className = "research-section-heading";
+  heading.textContent = label;
+
+  const list = document.createElement("ol");
+  list.className = "bibliography";
+  for (const publication of entries) {
+    list.append(renderPublication(publication));
+  }
+
+  nodes.push(heading, list);
 }
 
 function renderPublication(publication) {

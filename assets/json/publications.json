@@ -1,16 +1,16 @@
 [
   {
-    "section": "publications",
+    "section": "working_papers",
     "title": "Don't Just Prompt—Suggest: Suggested Plans Boost Planning Prompt Effectiveness in the Field (Job Market Paper)",
     "authors": "Robert Kuan, Katherine L. Milkman, Sean F. Ellis, Dena M. Gromet, Kevin V. Zhu, Youngwoo Jung, Christophe Van den Bulte, Ron Berman, Eugen Dimant, Ramon A. Silvera Zumaran, Madeline K. Paxson, and Angela L. Duckworth",
     "venue": "Journal of Consumer Research",
     "status": "invited for revision and resubmission",
     "paper_url": "https://drive.google.com/open?id=1NYbVD4qxDuhPO4cPX6lNxJXZSZtovKZu&usp=drive_fs",
     "note": "Winner of the Franco Nicosia Best Short Competitive Paper Award at the ACR Conference (2024).",
-    "abstract": "Prompting consumers to plan when and where they will follow through on a goal can close intention-behavior gaps. Such \"planning prompts\" typically require consumers to form their own plans, and prior research suggests this should enhance follow-through because self-set plans capitalize on the benefits of consumer autonomy (i.e., commitment, memorability). However, we propose that adding a suggested plan - specifying a proposed time, day, and location for action - alongside a planning prompt can further boost follow-through. We theorize that a suggested plan increases the ease of planning by reducing complexity and cognitive effort, which could be more important than bolstering consumer autonomy in the planning process. In a field experiment (N = 1,012,143) with a national U.S. pharmacy chain, we find that planning prompts including a suggested plan led to 2.45% more vaccinations than planning prompts alone. In a second field experiment (N = 985,145), we show that planning prompts offering a suggested plan outperformed best-practice reminders by 3.26%. Our studies also provide evidence that a planning prompt offering a suggested plan acts as a reference point or anchor, a heuristic that can simplify the decision process; consumers are more likely to get vaccinated both at and near the time of day and day of the week mentioned in the suggestion, compared to customers who only received a planning prompt without a suggested plan."
+    "abstract": "Prompting consumers to plan when and where they will follow through on a goal can close intention-behavior gaps. Such “planning prompts” typically require consumers to form their own plans, and prior research suggests this should enhance follow-through because self-set plans can increase commitment and memorability while simultaneously respecting consumer autonomy. However, we propose that adding a suggested plan—specifying a proposed time, day, and location for action—alongside a planning prompt can further boost follow-through. We theorize that a suggested plan increases the ease of planning by reducing complexity and cognitive effort, which could be more important than bolstering consumer autonomy in the planning process. In a field experiment (N = 1,012,143) with a national U.S. pharmacy chain, we find that planning prompts including a suggested plan led to 2.45% more vaccinations than planning prompts alone. In a second field experiment (N = 985,145), we show that planning prompts offering a suggested plan outperformed best-practice reminders by 3.26%. Our studies also provide evidence that a planning prompt offering a suggested plan acts as a reference point or anchor, a heuristic that can simplify their decision process; consumers are more likely to get vaccinated both at and near the time of day and day of the week mentioned in the suggestion, compared to customers who only received a planning prompt without a suggested plan."
   },
   {
-    "section": "publications",
+    "section": "working_papers",
     "title": "When the Time Is Right: Labeling Dates to Motivate Donations",
     "authors": "Jan G. Voelkel, Robert Kuan, Katherine L. Milkman, Lauren Eskreis-Winkler, and Kevin V. Zhu",
     "venue": "Management Science",
@@ -19,7 +19,7 @@
     "abstract": "Many societies label certain dates to set time aside for the commemoration of an important event, individual, group, or cause (e.g., Martin Luther King Jr. Day, Mother's Day). Based on prior research on mental accounting, we theorize that labeling dates may produce a \"time-is-right effect\" whereby individuals who are reminded of the label on a given date (e.g., Earth Day) are more likely to donate to an organization whose mission matches that label (e.g., The Rainforest Alliance). Across nine experiments (all preregistered; total N = 10,226), including three hypothetical and six incentive-compatible experiments, we find consistent evidence for a large \"time-is-right effect\"; labeling dates increased donations to charitable organizations that serve causes aligned with a given date's label by an average of 11 percentage points in incentivized studies. We further provide evidence that this effect occurs because labeling dates both makes the associated cause more salient (Study 3) and provides a justification for donating to that cause on those dates (Studies 1, 2, and 4). These findings extend a small prior literature suggesting that date labels can shape financial decisions and consumer behavior more broadly and offer new insight into why mental accounting matters."
   },
   {
-    "section": "publications",
+    "section": "working_papers",
     "title": "Field Experiments in Consumer Research: Transparency in Design, Execution, and Reporting",
     "authors": "Ayelet Gneezy, Seyi Lawal, Robert Kuan, Katherine L. Milkman, and Leif D. Nelson",
     "venue": "Journal of Consumer Research",

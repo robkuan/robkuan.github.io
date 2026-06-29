@@ -67,8 +67,12 @@ try {
         }
       } else if (path === "/research/") {
         const sectionHeadings = page.locator(".research-section-heading");
-        if ((await sectionHeadings.count()) !== 1) {
-          throw new Error("/research/ should show one section heading");
+        if ((await sectionHeadings.count()) !== 2) {
+          throw new Error("/research/ should show two section headings");
+        }
+        const headingText = (await sectionHeadings.allTextContents()).map((text) => text.trim());
+        if (headingText.join("|") !== "working papers|publications") {
+          throw new Error(`/research/ should show working papers before publications; got ${headingText.join(", ")}`);
         }
         const badges = page.locator(".publications ol.bibliography li .abbr abbr, .publications ol.bibliography li abbr.badge");
         if ((await badges.count()) !== 0) {
@@ -141,7 +145,7 @@ try {
         });
       });
       await page.goto(new URL("/cv/", baseUrl).toString(), { waitUntil: "load", timeout: 10000 });
-      await page.waitForURL(/\/assets\/pdf\/cv\.pdf\?v=2026-06-17/, { timeout: 5000 });
+      await page.waitForURL(/\/assets\/pdf\/cv\.pdf\?v=2026-06-28/, { timeout: 5000 });
     } finally {
       await page.close();
     }
